@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div class="container mt-3">
+        <h2 class="">{{ movie.name }}</h2>
+        <h4 class="mb-3">{{ movie.year }}</h4>
+        <div class="row">
+            <div class="col-3">
+                <img src="{{ movie.image.url }}" style="width: 100%;" alt="movie_poster">
+            </div>
+            <div class="col-8">
+                <p>{{ movie.desc }}</p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <a class="btn btn-primary" href="{% url 'movieapp:edit' movie.id %}" title="edit {{ movie.name }}" role="button">
+                        <i class="fa-solid fa-pen-to-square"></i> Edit
+                    </a>
+                    <a class="btn btn-danger" href="{% url 'movieapp:delete' movie.id %}" title="delete {{ movie.name }}" role="button">
+                        <i class="fa-solid fa-trash-can"></i> Delete
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
